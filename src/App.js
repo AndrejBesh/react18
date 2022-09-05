@@ -1,10 +1,12 @@
-import { Examples } from "./components/Examples";
-
+import { Todo } from "./components/Todo"
+import "./css/index.css"
 
 const App = () => {
 
   return (
-    <Examples />
-  )
+    <div>
+      <Todo />
+    </div>
+  );
 }
 export default App;

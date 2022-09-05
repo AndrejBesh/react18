@@ -1,12 +1,22 @@
-export const socials = [
-    { value: 'facebook', name: 'Facebook' },
-    { value: 'insta', name: 'Instagram' },
-    { value: 'twitter', name: 'Twitter' },
-    { value: 'tiktok', name: 'Tiktok' }
-]
-export const people = [
-    { value: '1', name: 'Andrej' },
-    { value: '2', name: 'Alek' },
-    { value: '3', name: 'Stefani' },
-    { value: '4', name: 'Kiko' }
+export const mockTodos = [
+    {
+        id: 1,
+        text: "Zavrsi task 1",
+        completed: false
+    },
+    {
+        id: 2,
+        text: "Zavrsi task 2",
+        completed: false
+    },
+    {
+        id: 3,
+        text: "Zavrsi task 3",
+        completed: false
+    },
+    {
+        id: 4,
+        text: "Zavrsi task 4",
+        completed: false
+    },
 ]
