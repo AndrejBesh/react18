@@ -1,22 +1,20 @@
 import { Dropdown } from "./Dropdown"
-import { socials, people } from '../mockData'
+import { days } from '../mockData'
 import { useState } from "react"
 export const DisplayDropdowns = () => {
-    const [social, setSocial] = useState("")
-    const [person, setPerson] = useState("")
-
+    const [dayoff, setDaysOff] = useState([]);
+    const onDaysOffHandler = (val) => {
+        setDaysOff([...dayoff, val])
+        console.log(val)
+        console.log(dayoff)
+    }
     return (
         <div>
             <Dropdown
-                label='Choose Social'
-                elements={socials} onChangeDropDown={setSocial} />
+                label='Choose a dayoff'
+                days={days} onDaysOffHandler={onDaysOffHandler} dayoff={dayoff} />
+            <p>Selected dayoff: {dayoff}</p>
 
-            <Dropdown
-                label='Choose Person'
-                elements={people} onChangeDropDown={setPerson} />
-
-            <p>selected social: {social}</p>
-            <p>selected person: {person}</p>
         </div>
     )
 }

@@ -1,13 +1,20 @@
+import { useState } from "react"
 
-export const Dropdown = ({ elements, onChangeDropDown, label }) => {
+export const Dropdown = ({ days, label, onDaysOffHandler, dayoff }) => {
+    const [selectValue, setSelectedValue] = useState()
+    const dataSender = (value) => {
+        setSelectedValue(value)
+        onDaysOffHandler(selectValue)
+    }
+
     return (
         <div>
             <label>{label}</label>
             <br></br>
-            <select onChange={(e) => { onChangeDropDown(e.target.value) }}>
-                {elements.map((element, i) => (
-                    <option key={i} value={element.value}>
-                        {element.name}
+            <select onChange={e => dataSender(e.target.value)}>
+                {days.map((day, i) => (
+                    <option key={i} value={day}>
+                        {day}
                     </option>
                 ))}
             </select>

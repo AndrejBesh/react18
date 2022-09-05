@@ -1,10 +1,13 @@
-import { Examples } from "./components/Examples";
+import { DisplayDropdowns } from "./components/DisplayDropdown";
 
 
 const App = () => {
 
   return (
-    <Examples />
+    <>
+
+      <DisplayDropdowns />
+    </>
   )
 }
 export default App;
