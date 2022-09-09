@@ -1,43 +1,35 @@
-import { Nav } from "./components/Nav";
-import { Route, Routes } from "react-router-dom";
-import { Home } from "./components/Home";
-import { About } from "./components/About";
-import { Contact } from "./components/Contact";
-import { Users } from "./components/Users";
-import { User } from "./components/User";
-import { NewUser } from "./components/NewUser";
-import { UserLayout } from "./layouts/UserLayout";
-import { NotFound } from "./components/NotFound";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import { Route, Routes } from "react-router-dom"
+import { Comments } from "./components/Comments"
+import { Gallery } from "./components/Gallery"
+import { Nav } from './components/Nav'
+import { Posts } from "./components/Posts"
+import { API_URL, POSTS_SIZE } from "./components/utils/constants"
 
 
 const App = () => {
-  const [users, setUsers] = useState([])
-  const fetchUsers = async () => {
-    const fetchData = await fetch('https://jsonplaceholder.typicode.com/users')
-    const data = await fetchData.json()
-    setUsers(data)
-  }
+  const [posts, setPosts] = useState([])
   useEffect(() => {
-    fetchUsers()
+    const fetchDAta = async () => {
+      const response = await fetch(`${API_URL}/posts?_limit=${POSTS_SIZE}`)
+      const data = await response.json()
+      await new Promise((r) => setTimeout(r, 5000))
+      setPosts(data)
+    }
+    fetchDAta()
   }, [])
 
   return (
     <div>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
 
-        <Route path="/users" element={<UserLayout />}>
-          <Route index element={<Users users={users} />} />
-          <Route path=":id" element={<User />} />
-          <Route path="new" element={<NewUser />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
+      <Routes>
+        <Route path="/posts" element={<Posts posts={posts} />} />
+        <Route path="/comments" element={<Comments />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </div>
+
   );
 }
 export default App;
