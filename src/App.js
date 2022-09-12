@@ -8,7 +8,6 @@ import { Posts } from "./components/Posts"
 import { Comments } from "./components/Comments"
 import { Gallery } from "./components/Gallery"
 import { useEffect, useState } from "react"
-
 import { GalleryProvider } from "./Provaiders/GalleryProvider"
 
 const App = () => {
@@ -26,7 +25,7 @@ const App = () => {
     fetchData()
   }, [])
 
-  console.log("APP", posts)
+  // console.log("APP", posts)
 
   return (
     <div>
