@@ -1,11 +1,12 @@
-import { DisplayDropdowns } from "./components/DisplayDropdown";
+import { DisplayDaysOff, } from "./components/Homework2";
+
 
 
 const App = () => {
 
   return (
     <>
-      <DisplayDropdowns />
+      <DisplayDaysOff />
     </>
   )
 }
